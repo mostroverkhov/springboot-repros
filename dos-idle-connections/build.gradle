@@ -1,0 +1,17 @@
+plugins {
+    id "application"
+}
+
+dependencies {
+    implementation "io.netty:netty-buffer:4.1.67.Final"
+    implementation "io.netty:netty-codec:4.1.67.Final"
+    implementation "io.netty:netty-handler:4.1.67.Final"
+    implementation "io.netty:netty-transport:4.1.67.Final"
+    compileOnly "org.slf4j:slf4j-api:1.7.30"
+    runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
+}
+
+task bootRun(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "example.client.Main"
+}

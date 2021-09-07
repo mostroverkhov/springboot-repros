@@ -1,0 +1,5 @@
+rootProject.name = "springboot-rsocket"
+include "service"
+include "channel-error"
+include "dos-idle-connections"
+
