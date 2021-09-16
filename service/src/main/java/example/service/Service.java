@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Controller
 public class Service {
@@ -14,5 +15,25 @@ public class Service {
     @MessageMapping("channel")
     public Flux<Response> channel(Publisher<Request> request) {
         return Flux.error(new RuntimeException("plain error"));
+    }
+
+    @MessageMapping("stream")
+    public Flux<Response> streamOverflow(Request request) {
+        return Flux.create(sink -> {
+            sink.onRequest(requestN -> {
+                for (long i = 0; i < requestN; i++) {
+                    Response r = new Response();
+                    r.setMessage(request.getMessage());
+                    sink.next(r);
+                }
+            });
+        });
+    }
+
+    @MessageMapping("response")
+    public Mono<Response> responseOverflow(Request request) {
+        Response r = new Response();
+        r.setMessage(request.getMessage());
+        return Mono.just(r);
     }
 }

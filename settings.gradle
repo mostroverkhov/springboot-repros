@@ -2,4 +2,6 @@ rootProject.name = "springboot-rsocket"
 include "service"
 include "channel-error"
 include "dos-idle-connections"
+include "dos-stream-overflow"
+include "dos-response-overflow"
 
