@@ -5,4 +5,5 @@ include "dos-idle-connections"
 include "dos-response-overflow"
 include "dos-stream-overflow"
 include "dos-channel-overflow"
+include "dos-keepalive-overflow"
 
