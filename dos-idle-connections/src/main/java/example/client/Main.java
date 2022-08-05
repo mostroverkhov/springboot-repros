@@ -57,7 +57,7 @@ public class Main {
                         }
                     });
                 }
-                if (++count < 10) {
+                if (++count < 5) {
                     executorService.schedule(this, 1, TimeUnit.SECONDS);
                 }
             }

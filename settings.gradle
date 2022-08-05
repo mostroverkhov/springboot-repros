@@ -7,3 +7,4 @@ include "dos-stream-overflow"
 include "dos-channel-overflow"
 include "dos-keepalive-overflow"
 
+include "service-kotlin"
