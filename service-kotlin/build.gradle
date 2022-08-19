@@ -12,5 +12,3 @@ dependencies {
 }
 
 mainClassName = "example.server.Main"
-
-applicationDefaultJvmArgs = ["-Xms1024m", "-Xmx1024m"]
